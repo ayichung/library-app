@@ -1,0 +1,63 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background-color: #f0eef1;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    word-wrap: break-word;
+    margin: 0;
+    padding: 0;
+}
+
+/* UTILS */
+
+.container {
+    padding-left: 8px;
+}
+
+/* HEADER */
+
+header {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    margin-bottom: 18px;
+    padding-left: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* MAIN */
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+input,
+button{
+    font-family: inherit;
+    border-style: none;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+button {
+    background-color: lightgreen;
+}
+
+.books-list {
+    display: flex;
+    justify-content: space-between;
+}
