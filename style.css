@@ -13,22 +13,24 @@ body {
     padding: 0;
 }
 
-/* UTILS */
-
-.container {
-    padding-left: 8px;
-}
-
 /* HEADER */
 
 header {
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     margin-bottom: 18px;
-    padding-left: 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+header,
+main {
+    padding: 0% 20%;
+}
+
+h1 {
+    margin: 18px;
 }
 
 /* MAIN */
@@ -40,6 +42,7 @@ main {
 
 form {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 12px;
