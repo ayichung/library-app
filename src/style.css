@@ -4,7 +4,8 @@ html {
 }
 
 body {
-    background-color: #f0eef1;
+    background-color: #FCFCFB;
+    color: #637B3B;
     font-family: "Poppins", sans-serif;
     font-size: 18px;
     font-weight: 400;
@@ -16,8 +17,9 @@ body {
 /* HEADER */
 
 header {
-    background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #666666;
     margin-bottom: 18px;
     display: flex;
     align-items: center;
@@ -44,8 +46,16 @@ form {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding-bottom: 18px;
     gap: 12px;
+    font-size: 16px;
+    font-weight: 600;
+
+}
+
+input:focus {
+    outline: none;
 }
 
 input,
@@ -57,7 +67,8 @@ button{
 }
 
 button {
-    background-color: lightgreen;
+    background-color: #637B3B;
+    color:#FCFCFB;
 }
 
 .books-list {
