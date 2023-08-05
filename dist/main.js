@@ -110,13 +110,43 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
+/***/ "./src/book.js":
+/*!*********************!*\
+  !*** ./src/book.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Book)\n/* harmony export */ });\nclass Book {\r\n    constructor (title, author = ' ', pages = ' ') {\r\n        this.title = title;\r\n        this.author = author;\r\n        this.pages = pages;\r\n        this.key = new Date();\r\n    }\r\n}\n\n//# sourceURL=webpack://library-app/./src/book.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n//# sourceURL=webpack://library-app/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _ui__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ui */ \"./src/ui.js\");\n\r\n\r\n\r\n// startup\r\nconst ui = new _ui__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\r\ndocument.addEventListener('DOMContentLoaded', ui.loadLibrary());\n\n//# sourceURL=webpack://library-app/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/library.js":
+/*!************************!*\
+  !*** ./src/library.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Library)\n/* harmony export */ });\nclass Library {\r\n    addBookToLibrary (book) {\r\n        try {  // lib exist\r\n            let lib = JSON.parse(localStorage.getItem('lib'));\r\n            lib.push(book);\r\n            localStorage.setItem('lib', JSON.stringify(lib));\r\n        } catch (error) {  // lib not exist, first time user\r\n            localStorage.setItem('lib', JSON.stringify([book]));\r\n        }\r\n    }\r\n    \r\n    // removeBookFromLibrary() {\r\n        // try catch\r\n    // }\r\n\r\n    getLibrary () {\r\n        return JSON.parse(localStorage.getItem('lib'));\r\n    }\r\n}\n\n//# sourceURL=webpack://library-app/./src/library.js?");
+
+/***/ }),
+
+/***/ "./src/ui.js":
+/*!*******************!*\
+  !*** ./src/ui.js ***!
+  \*******************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Ui),\n/* harmony export */   loadLibrary: () => (/* binding */ loadLibrary)\n/* harmony export */ });\n/* harmony import */ var _book_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./book.js */ \"./src/book.js\");\n/* harmony import */ var _library_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./library.js */ \"./src/library.js\");\n\r\n\r\n\r\nclass Ui {\r\n    loadLibrary () {\r\n        // testing setup\r\n        const library = new _library_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\r\n        const book = new _book_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"](\"Circe\", \"Madeline Miller\", 416);\r\n        library.addBookToLibrary(book);\r\n\r\n        // here\r\n        const books = library.getLibrary();\r\n        console.log(books);\r\n        // do dom stuff\r\n    }\r\n\r\n    // clearLibrary () {\r\n\r\n    // }\r\n\r\n    // listen for submit btn\r\n        // new book\r\n        // add obj key as dom id\r\n        // add to library\r\n        // loadLib\r\n\r\n    // addBook () {\r\n\r\n    // }\r\n\r\n    // listen for del btn\r\n        // rm from library\r\n        // loadLib\r\n\r\n    // removeBook () {\r\n\r\n    // }\r\n}\r\n\r\nconst { loadLibrary } = new Ui();\n\n//# sourceURL=webpack://library-app/./src/ui.js?");
 
 /***/ })
 

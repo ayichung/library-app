@@ -1,17 +1,8 @@
 export default class Book {
-    constructor() {
-        
-    }
-
-    get title() {
-        
-    }
-
-    get author() {
-
-    }
-
-    get pages() {
-
+    constructor (title, author = ' ', pages = ' ') {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.key = new Date();
     }
 }
