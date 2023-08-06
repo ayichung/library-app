@@ -3,9 +3,6 @@ import Library from './library.js';
 
 export default class Ui {
     static loadList () {
-        // here, just finished implement load list
-        // next, implement add book from input fields
-        // and then delete stuff
         const library = new Library();
         const list = document.querySelector(".book-list");
         const lib = library.getLibrary();
@@ -36,6 +33,8 @@ export default class Ui {
         bookElem.appendChild(pages);
         bookElem.appendChild(rmBtn);
 
+        rmBtn.addEventListener("click", () => Ui.removeBook(bookElem));
+
         return bookElem;
     }
 
@@ -61,11 +60,10 @@ export default class Ui {
         return new Book(title, author, pages);
     }
 
-    // listen for del btn
-        // rm from library
-        // loadLib
-
-    // static removeBook () {
-
-    // }
+    static removeBook (book) {
+        const library = new Library();
+        library.removeBookFromLibrary(book.id);
+        Ui.clearList();
+        Ui.loadList();
+    }
 }

@@ -9,9 +9,12 @@ export default class Library {
         }
     }
     
-    // removeBookFromLibrary() {
-        // try catch
-    // }
+    removeBookFromLibrary(key) {
+        let lib = JSON.parse(localStorage.getItem('lib'));
+        const bookIndex = lib.findIndex((book) => book.key === key);
+        lib.splice(bookIndex, 1);
+        localStorage.setItem('lib', JSON.stringify(lib));
+    }
 
     getLibrary () {
         return JSON.parse(localStorage.getItem('lib'));
