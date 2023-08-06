@@ -2,5 +2,8 @@ import './style.css';
 import Ui from './ui';
 
 // startup
-const ui = new Ui();
-document.addEventListener('DOMContentLoaded', ui.loadList());
+document.addEventListener('DOMContentLoaded', Ui.loadList);
+
+// listeners
+const form = document.querySelector("#add-form");
+form.addEventListener("submit", Ui.addBook);

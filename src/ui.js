@@ -2,27 +2,21 @@ import Book from './book.js';
 import Library from './library.js';
 
 export default class Ui {
-    loadList () {
-        // testing setup
-        const library = new Library();
-        const book = new Book("Circe", "Madeline Miller", 416);
-        library.addBookToLibrary(book);
-        this.clearList();  // this should go in add/delete methods
-
+    static loadList () {
         // here, just finished implement load list
-        // next, implement add book for storage
-        // and then add book from input fields
+        // next, implement add book from input fields
         // and then delete stuff
+        const library = new Library();
         const list = document.querySelector(".book-list");
         const lib = library.getLibrary();
         for (const i in lib) {
-            console.log(lib[i]);
-            const bookElem = this.createBookElem(book);
+            const book = lib[i];
+            const bookElem = Ui.createBookElem(book);
             list.appendChild(bookElem);
         }
     }
 
-    createBookElem (book) {
+    static createBookElem (book) {
         const bookElem = document.createElement("div");
         const title = document.createElement("p")
         const author = document.createElement("p")
@@ -30,6 +24,7 @@ export default class Ui {
         const rmBtn = document.createElement("button")
 
         bookElem.classList.add("book");
+        bookElem.setAttribute("id", book.key);
         title.classList.add("title");
         title.textContent = book.title;
         author.textContent = "by " + book.author;
@@ -44,28 +39,33 @@ export default class Ui {
         return bookElem;
     }
 
-    clearList () {
+    static clearList () {
         const list = document.querySelector(".book-list");
         list.textContent = null;
     }
 
-    // listen for submit btn
-        // new book
-        // add obj key as dom id
-        // add to library
-        // loadLib
+    static addBook (e) {
+        e.preventDefault();
+        const newBook = Ui.getBookInput();
+        const library = new Library();
+        library.addBookToLibrary(newBook);
+        document.querySelector("#add-form").reset();
+        Ui.clearList();
+        Ui.loadList();
+    }
 
-    // addBook () {
-
-    // }
+    static getBookInput () {
+        const title = document.getElementById('title').value;
+        const author = document.getElementById('author').value;
+        const pages = document.getElementById('pages').value;
+        return new Book(title, author, pages);
+    }
 
     // listen for del btn
         // rm from library
         // loadLib
 
-    // removeBook () {
+    // static removeBook () {
 
     // }
 }
-
-export const { loadList: loadLibrary } = new Ui();
