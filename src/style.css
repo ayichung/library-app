@@ -38,20 +38,18 @@ h1 {
 /* MAIN */
 
 main {
-    display: flex;
-    justify-content: center;
+    align-items: center;
 }
 
 form {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding-bottom: 18px;
     gap: 12px;
     font-size: 16px;
     font-weight: 600;
-
 }
 
 input:focus {
@@ -71,7 +69,24 @@ button {
     color:#FCFCFB;
 }
 
-.books-list {
+.book {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #666666;
+    border-radius: 6px;
+    padding: 12px 18px;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 16px !important;
+}
+
+.book > p,
+.book > button {
+    font-size: 14px;
 }
