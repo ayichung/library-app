@@ -1,7 +1,5 @@
-import Book from './book.js';
-import Library from './library.js';
-
-export default class Ui {
+// ui
+class Ui {
     static loadList () {
         const library = new Library();
         const list = document.querySelector(".book-list");
@@ -67,3 +65,44 @@ export default class Ui {
         Ui.loadList();
     }
 }
+
+// library
+class Library {
+    addBookToLibrary (book) {
+        try {  // lib exist
+            let lib = JSON.parse(localStorage.getItem('lib'));
+            lib.push(book);
+            localStorage.setItem('lib', JSON.stringify(lib));
+        } catch (error) {  // lib not exist, first time user
+            localStorage.setItem('lib', JSON.stringify([book]));
+        }
+    }
+    
+    removeBookFromLibrary(key) {
+        let lib = JSON.parse(localStorage.getItem('lib'));
+        const bookIndex = lib.findIndex((book) => book.key === key);
+        lib.splice(bookIndex, 1);
+        localStorage.setItem('lib', JSON.stringify(lib));
+    }
+
+    getLibrary () {
+        return JSON.parse(localStorage.getItem('lib'));
+    }
+}
+
+// book
+class Book {
+    constructor (title, author = ' ', pages = ' ') {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.key = new Date();
+    }
+}
+
+// startup
+document.addEventListener('DOMContentLoaded', Ui.loadList);
+
+// listeners
+const form = document.querySelector("#add-form");
+form.addEventListener("submit", Ui.addBook);
